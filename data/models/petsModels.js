@@ -1,17 +1,24 @@
 const db = require("../dbConfig");
 
 module.exports = {
-  getAllPets
+  getAllPets,
+  addNewPet,
+  removePet
 };
 
 async function getAllPets() {
-  return null;
+  return db("pets");
 }
 
 async function addNewPet(pet) {
-  return null;
+  const [id] = await db("pets").insert(pet);
+  return db("pets")
+    .where({ id })
+    .first();
 }
 
 async function removePet(id) {
-  return null;
+  return db("pets")
+    .where({ id })
+    .del();
 }
