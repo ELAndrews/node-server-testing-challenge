@@ -6,6 +6,7 @@ module.exports = {
     connection: {
       filename: "./data/pets"
     },
+    useNullAsDefault: true,
     migrations: {
       directory: "./data/migrations"
     },
